@@ -10,9 +10,11 @@ import org.apache.struts.action.ActionMapping;
 
 public class LoginAction extends Action {
 	
+	private static final String FW_SUCCESS = "success";
+	
 	public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest req, final HttpServletResponse res){
 		
-		return mapping.findForward("success");
+		return mapping.findForward(FW_SUCCESS);
 	}
 
 }

@@ -1,3 +1,4 @@
+<%@page import="com.javaquarium.action.ListerEspeceAction"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="/WEB-INF/tld/struts-bean-1.2.tld" prefix="bean" %>
@@ -15,7 +16,7 @@
 <body>
 
 <!--  message de bienvenue, récupére les informations de l'utilisateur dans la page de connection -->
-<bean:message key="message.bienvenue"/> <html:text name="utilisateur" property="utilisateur"/>
+<bean:message key="message.bienvenue"/> <bean:write name="utilisateur" property="utilisateur"/>
 
 <table class="pure-table">
 
@@ -32,9 +33,10 @@
 	</tr>
 		
 <!--  Contenu du tableau  -->
-<logic:iterate name="requestTableauPoisson" id="MonPoisson">
+<logic:iterate name="<%= ListerEspeceAction.SESSION_REQUEST %>" id="MonPoisson">
 	<tr>
-		<td> <bean:write name="MonPoisson" property="espece"/> </td>
+		
+		<td> <bean:write name="MonPoisson" property="nom"/> </td>
 		<td> <bean:write name="MonPoisson" property="description"/> </td>
 		<td> <bean:write name="MonPoisson" property="couleur"/> </td>
 		<td> <bean:write name="MonPoisson" property="dimension"/> </td>
@@ -48,6 +50,8 @@
 </logic:iterate>
 		
 		</table>
+		
+		<a href="/Javaquarium/jsp/UC02_ajout.jsp"> <bean:message key="ajouter.lien.poisson" /></a>
 
 </body>
 </html>

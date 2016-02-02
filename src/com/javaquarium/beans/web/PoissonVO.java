@@ -10,7 +10,10 @@ public class PoissonVO extends ActionForm {
 	private String description;
 	private String couleur;
 	private String dimension;
-	private String prix;
+	private Integer prix;
+	private String nom;
+	
+	
 	
 	/**
 	 * @return the code
@@ -75,24 +78,33 @@ public class PoissonVO extends ActionForm {
 	/**
 	 * @return the prix
 	 */
-	public String getPrix() {
+	public Integer getPrix() {
 		return prix;
 	}
 	/**
 	 * @param prix the prix to set
 	 */
-	public void setPrix(String prix) {
+	public void setPrix(Integer prix) {
 		this.prix = prix;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	
 	public PoissonVO(){}
 	
-	public PoissonVO(String espece, String description, String couleur, String dimension, String prix){
+	public PoissonVO(String nom, String espece, String description, String couleur, String dimension, Integer prix){
 		this.espece = espece;
 		this.description = description;
 		this.couleur = couleur;
 		this.dimension = dimension;
 		this.prix = prix;
+		this.nom = nom;
 	}
+	
 
 }

@@ -16,6 +16,9 @@ import com.javaquarium.business.PoissonService;
 
 public class ListerEspeceAction extends Action {
 	
+	private static final String FW_SUCCESS = "success";
+	public static final String SESSION_REQUEST = "requestTableauPoisson";
+	
 	public ActionForward execute (final ActionMapping mapping, final ActionForm form, final HttpServletRequest req, final HttpServletResponse res){
 		
 		// Appelle de l'interface qui va instancier PoissonService()
@@ -25,10 +28,10 @@ public class ListerEspeceAction extends Action {
 		List<PoissonVO> poissonVO = service.createListPoissons();
 		
 		// Le tableau créé dans la jsp UC01_especes a comme nom "requestTableauPoisson", on va lui faire passer la liste des poissonVO, comme c'est un tableau créé grâce à un bean on pourra accéder aux propriétés (especes, description, etc...)
-		req.getSession().setAttribute("requestTableauPoisson", poissonVO);
+		req.getSession().setAttribute(SESSION_REQUEST, poissonVO);
 		
 		
-		return mapping.findForward("success");
+		return mapping.findForward(FW_SUCCESS);
 		
 		
 	}

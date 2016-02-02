@@ -8,6 +8,7 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 <!-- on va lié le nom loginForm au bean LoginVO -->
 <form-beans type="org.apache.struts.action.ActionFormBean">
 	<form-bean name="loginForm" type="com.javaquarium.beans.web.LoginVO" />
+	<form-bean name="poissonForm" type="com.javaquarium.beans.web.PoissonVO" />
 </form-beans>
 
 
@@ -25,6 +26,11 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 		<forward name="failure" path="/jsp/UC00_login.jsp" redirect="true" />
 	</action>
 
+	<!--  path /ajouterNouveauPoisson lié au formulaire de la jsp UC02_ajout -->
+	<action path="/ajouterNouveauPoisson" input="/jsp/UC02_ajout.jsp" scope="request" name="poissonForm" type="com.javaquarium.action.AjoutAction">
+		<forward name="success" path="listerEspece.do" redirect="true" />
+		<forward name="failure" path="/jsp/UC02_ajout.jsp" redirect="true" />
+	</action>
 
 
 </action-mappings>
