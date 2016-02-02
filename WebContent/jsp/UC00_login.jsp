@@ -7,16 +7,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Page de connexion</title>
 </head>
 <body>
 
-<html:form action="login">
+<html:form action="pageLogin" styleClass="pure-form pure-form-aligned">
 	<html:errors/>
 	<br/>
 	
+	<div class="pure-control-group">
 	<bean:message key="login.utilisateur"/> <html:text property="utilisateur"/>
+	</div>
+	
+	<div class="pure-control-group">
 	<bean:message key="login.motdepasse"/> <html:text property="motDePasse"/>
+	</div>
 	
 	<html:submit property="submit" value="Se Connecter" />
 	<html:reset property="reset" value ="Effacer" />

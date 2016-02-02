@@ -19,9 +19,9 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 		<forward name="success" path="/jsp/UC01_especes.jsp"/> 
 	</action>
 	
-	<!-- url /login , de portée type requête, nom loginForm qui sera lié à un bean au dessus, lié à LoginAction.java -->
-	<action path="/login"  input="/jsp/UC00_login.jsp" scope="request" name="loginForm" type="com.javaquarium.action.LoginAction">
-		<forward name="success" path="/jsp/UC01_especes.jsp" redirect="true"/>
+	<!-- path /pagelogin lié au formulaire du formulaire de la jsp UC00_login qui a l'action à "/pageLogin" , de portée type requête, nom loginForm qui sera lié à un bean au dessus, lié à LoginAction.java -->
+	<action path="/pageLogin"  input="/jsp/UC00_login.jsp" scope="request" name="loginForm" type="com.javaquarium.action.LoginAction">
+		<forward name="success" path="/listerEspece.do" redirect="true"/>
 		<forward name="failure" path="/jsp/UC00_login.jsp" redirect="true" />
 	</action>
 
