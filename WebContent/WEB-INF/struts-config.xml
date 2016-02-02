@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config 
+PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+
+<!-- on va lié le nom loginForm au bean LoginVO -->
+<form-beans type="org.apache.struts.action.ActionFormBean">
+	<form-bean name="loginForm" type="com.javaquarium.beans.web.LoginVO" />
+</form-beans>
+
+
+
+<action-mappings type="org.apache.struts.action.ActionMapping">
+	
+	<!-- url /listerEspece.do, lié à ListerEspeceAction.java, si success est retourné on va sur la page UC01_especes.jsp -->
+	<action path="/listerEspece" type="com.javaquarium.action.ListerEspeceAction">
+		<forward name="success" path="/jsp/UC01_especes.jsp"/> 
+	</action>
+	
+	<!-- url /login , de portée type requête, nom loginForm qui sera lié à un bean au dessus, lié à LoginAction.java -->
+	<action path="/login"  input="/jsp/UC00_login.jsp" scope="request" name="loginForm" type="com.javaquarium.action.LoginAction">
+		<forward name="success" path="/jsp/UC01_especes.jsp" redirect="true"/>
+		<forward name="failure" path="/jsp/UC00_login.jsp" redirect="true" />
+	</action>
+
+
+
+</action-mappings>
+
+<message-resources parameter="ApplicationResources"/>
+</struts-config>
